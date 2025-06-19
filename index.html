@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ulang Tahun Untuk Kamu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="slider-container">
+    <!-- Slide 1 - Pembuka -->
+    <div class="slide active">
+      <div class="slide-content">
+        <h1>Woy, Tua Dong!</h1>
+        <h2>🎉🎂</h2>
+        <div class="photo-frame">
+          <img src="cindy.jpg" alt="Foto Kita" />
+        </div>
+        <p>Geser Dong →</p>
+      </div>
+    </div>
+
+    <!-- Slide 2 - Ucapan -->
+    <div class="slide">
+      <div class="slide-content">
+        <h1>Selamat Bertambah Dewasa!</h1>
+        <div class="message">
+          <p>Selamat ulang tahun buat orang terbaik!</p>
+          <p>Semoga makin pinter, tapi jangan pinter-pinter amat ntar aku ketinggalan...</p>
+        </div>
+        <div class="decorative-heart">😂</div>
+      </div>
+    </div>
+
+    <!-- Slide 3 - Kenangan -->
+    <div class="slide">
+      <div class="slide-content">
+        <h1>Kenangan Kita</h1>
+        <div class="memory-photos">
+          <img src="Foto1.jpg" alt="Kenangan 1" class="memory-photo" />
+          <img src="Foto2.jpg" alt="Kenangan 2" class="memory-photo" />
+        </div>
+        <p>Thanks ya udah mau bertahan selama ini!</p>
+      </div>
+    </div>
+
+    <!-- Slide 4 - Harapan -->
+    <div class="slide">
+      <div class="slide-content">
+        <h1>Harapanku Buat Kamu</h1>
+        <ul class="wishes-list">
+          <li>Semoga makin cantik</li>
+          <li>Semoga rezekinya lancar (jangan lupa traktirannya)</li>
+          <li>Semoga kita tetap selamanya sampe tua (biar ada yang nemenin ke dokter)</li>
+        </ul>
+        <div class="floating-notes">🍰🎁🎈</div>
+      </div>
+    </div>
+
+    <!-- Slide 5 - Penutup -->
+    <div class="slide">
+      <div class="slide-content">
+        <h1>Pokoknya Thanks Ya!</h1>
+        <p>Udah mau bertahan sama aku yang nyebelin ini</p>
+        <div class="final-message">
+          <p>Aku sayang kamu... tapi jangan bangga dulu! (aku banyak kurangnya) hehehe</p>
+          <p class="signature">- [IBOY]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <button class="nav-btn prev-btn">❮</button>
+    <button class="nav-btn next-btn">❯</button>
+
+    <!-- Music Player -->
+<div class="music-controls">
+  <div class="music-player">
+    <button id="playBtn">🎵 Putar Lagu</button>
+    <audio id="romanticSong" loop>
+      <source src="https://media.vocaroo.com/mp3/1cjejGb6IWrK" type="audio/mpeg" />
+    </audio>
+  </div>
+</div>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators"></div>
+  </div>
+
+  <!-- Script utama -->
+  <script src="script.js"></script>
+
+  <!-- Script pemutar lagu -->
+  <script>
+    const playBtn = document.getElementById("playBtn");
+    const song = document.getElementById("romanticSong");
+
+    // Coba autoplay saat halaman dimuat
+    window.addEventListener("DOMContentLoaded", () => {
+      const playPromise = song.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Autoplay berhasil
+            playBtn.textContent = "⏸️ Pause Lagu";
+          })
+          .catch((error) => {
+            // Autoplay gagal (karena browser blokir)
+            console.warn("Autoplay diblokir:", error);
+          });
+      }
+    });
+
+    // Fungsi tombol play/pause
+    playBtn.addEventListener("click", function () {
+      if (song.paused) {
+        song.play();
+        this.textContent = "⏸️ Pause Lagu";
+      } else {
+        song.pause();
+        this.textContent = "🎵 Putar Lagu";
+      }
+    });
+  </script>
+  <div class="stars" id="stars"></div>
+<div class="balloons" id="balloons"></div>
+<div class="confettis" id="confettis"></div>
+</body>
+</html>
